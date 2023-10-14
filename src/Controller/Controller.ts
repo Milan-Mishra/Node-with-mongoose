@@ -9,10 +9,11 @@ exports.NotFound = (req: any, res: any) => res.send({ message: 'invalid URL!' })
 
 exports.insertProduct = async (req: any, res: any) => {
 
+  const { name, price, quantity } = req.body;
     const data = new product({
-        name: req.body.name,
-        price: req.body.price,
-        quantity: req.body.quantity
+        name,
+        price,
+        quantity
     });
 
     const result = await data.save();
@@ -61,10 +62,11 @@ exports.showProfit = async (req: any, res: any) => {
 exports.editProduct = async (req, res) => {
     try {
       const productId = req.params.id;
+      const { name, price, quantity } = req.body;
       const updates = {
-        name: req.body.name,
-        price: req.body.price,
-        quantity: req.body.quantity
+        name,
+        price,
+        quantity
       };
   
       // Find and update the product by ID

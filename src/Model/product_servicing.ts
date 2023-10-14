@@ -18,6 +18,7 @@ export default () => {
     },
     {
       versionKey: false,
+      timestamps: true,
     }
   );
 
